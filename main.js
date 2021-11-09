@@ -24,50 +24,94 @@ while (count <= gridWidth * gridWidth) {
   canvas.appendChild(div);
   count++;
 }
+//******** BIG FUNCTION UPDATE TO CHANGE BRUSH COLOR **********// 
 
-// You probably should NOT do these in the order below.
-// That is, you probably should NOT do all the queries,
-// THEN all the functions,
-// THEN all the wiring.
+function update() {
 
-// Instead, it'll be easier if you go one action at a time!
-// So, add a query for the palette colors.
-// THEN add an event listener function for what happens when one is clicked.
-// THEN wire those two together, so that when the palette elements are clicked,
-// the function runs.
-//
-// And proceed from there to getting the squares working.
-//
+  // QUERIES 
+  const color1 = document.querySelector(".color-1");
+  const color2 = document.querySelector(".color-2");
+  const color3 = document.querySelector(".color-3");
+  const color4 = document.querySelector(".color-4");
+  const color5 = document.querySelector(".color-5");
+  const brush = document.querySelector(".current-brush");
+  const canvas = document.querySelector('.canvas'); 
 
-// ALSO.
-// You do not have to follow the sections below. If you're doing your functions inline, it doesn't make a lot of sense to separate the event listener functions from their wiring!
+  //******** EVENT LISTENERS **********// 
 
-/***********
- * QUERIES *
-***********/
+// * COLOR 1 * //
+color1.addEventListener('click', function (event) {
+  const color1 = event.target; 
+  console.log('blue');
+  
+})
 
-// Add queries for all your squares, palette colors, and brush here.
-// (Note the singular or plural used in that sentence!)
+// * COLOR 2 * //
+color2.addEventListener('click', function (event) {
+  const color2 = event.target; 
+  console.log('orange');
+})
+
+// * COLOR 3 * //
+color3.addEventListener('click', function (event) {
+  const color3 = event.target; 
+  console.log('green');
+})
+
+// * COLOR 4 * //
+color4.addEventListener('click', function (event) {
+  const color4 = event.target; 
+  console.log('yellow');
+})
+
+// * COLOR 5 * //
+color5.addEventListener('click', function (event) {
+  const color5 = event.target; 
+  console.log('white');
+})
+
+// FUNCTION TO SWITCH BRUSH COLOR WHEN CLICKING ONE OF THE FOLLOWING COLORS
+const palette = document.querySelector('.palette'); 
+
+palette.addEventListener('click', function (event) {
+
+  // Get the palette color HTML element and the brush HTML element
+  const paletteColorElement = event.target; 
+  const brush = document.querySelector('.current-brush');
+
+  // Get the old color class and the new color class of the brush
+  const brushOldColor = brush.classList[1]; 
+  const brushNewColor = paletteColorElement.classList[1];
+  console.log('brush new color:', brushNewColor);
+
+  // For the brush, replace the old color class with the new color class
+brush.classList.replace(brushOldColor, brushNewColor); 
+
+})
+
+// FUNCTION TO PAINT IN CANVAS WITH MOUSE 
+
+// * CANVAS * // 
+canvas.addEventListener('mouseover', function (event) {
+  
+  // Get the palette color HTML element and the canvas HTML element
+  const paletteColorElement = event.target; 
+  const brush = document.querySelector('.current-brush');
+  const canvas = document.querySelector('.color-5');
+
+  // Get the old color class and the new color class for the canvas
+  const canvasColor = paletteColorElement.classList[1];
+  console.log('Canvas Color:', canvasColor);
+  const canvasColor2 = brush.classList[1];
+  console.log('Canvas New Color:', canvasColor2);
+
+  // For the canvas, add colors to canvas 
+  canvas.classList.replace(canvasColor, canvasColor2); 
+
+})
 
 
 
-/****************************
- * EVENT LISTENER FUNCTIONS *
-****************************/
+}
 
-// Now add some functions to handle clicking one particular square
-// and clicking one particular palette color. You can leave them
-// empty at first, though a console.log just to know they're being
-// run as event listeners (after the next step is set up) isn't a
-// bad idea for testing purposes.
-
-
-
-/**************************
- * WIRING IT ALL TOGETHER *
-**************************/
-
-// Now: wiring up our event listeners to our html node elements.
-// You'll need to add the appropriate event listener for each
-// square and for each palette color from the functions you
-// wrote above.
+update(); 

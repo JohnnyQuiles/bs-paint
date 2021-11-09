@@ -1,15 +1,24 @@
 .app {
   display: flex;
   height: 500px;
+  flex-direction: column;
+  justify-content: center; 
+  
 }
 
 .headings {
   display: flex;
+  align-self: center;
+  flex-direction: column;
+  
 }
 
 .brush-selection {
   height: 70px;
   display: flex;
+  align-items: center;
+  flex-direction: column;
+
 }
 
 .paint {
@@ -19,11 +28,23 @@
 
 .palette {
   display: flex;
-  margin-left: -30px;
+  margin-left: 180px;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -113px;
+  margin-left: -110px;
 }
 
 .brush {
   display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -82px;
+  margin-left: -16px;
 }
 
 .icon {
@@ -44,6 +65,12 @@
   height: 300px;
   width: 300px;
   border: 1px solid black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -150px;
+  
 }
 
 .square {
@@ -51,21 +78,22 @@
 }
 
 .color-1 {
+  background-color: #ADD8E6;
 
 }
 
 .color-2 {
+  background-color: #F9A501;
 
 }
 
 .color-3 {
-
+  background-color: #90EE90;
 }
-
 .color-4 {
-
+  background-color: #FBFF00;
 }
 
 .color-5 {
-
+  background-color: #FFFFFF;
 }
